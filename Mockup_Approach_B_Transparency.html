@@ -13,9 +13,38 @@
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
-            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f0f23 100%);
+            background: linear-gradient(180deg, #E8F1FF 0%, #F0F6FF 15%, #FFFFFF 30%);
             min-height: 100vh;
-            color: #fff;
+            color: #252527;
+            padding: 0;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        /* Cloud decorations */
+        .cloud-left {
+            position: fixed;
+            left: -100px;
+            bottom: 50px;
+            width: 400px;
+            height: auto;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .cloud-right {
+            position: fixed;
+            right: -100px;
+            top: 200px;
+            width: 450px;
+            height: auto;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .page-content {
+            position: relative;
+            z-index: 1;
             padding: 40px 20px;
         }
 
@@ -23,7 +52,7 @@
             position: fixed;
             top: 20px;
             left: 20px;
-            background: #22c55e;
+            background: #3CAA3C;
             color: white;
             padding: 8px 16px;
             border-radius: 20px;
@@ -46,9 +75,7 @@
             font-size: 42px;
             font-weight: 700;
             margin-bottom: 16px;
-            background: linear-gradient(90deg, #fff, #22c55e);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            color: #002253;
         }
 
         .billing-toggle {
@@ -61,18 +88,18 @@
 
         .billing-toggle span {
             font-size: 14px;
-            color: #a0a0a0;
+            color: #66666B;
         }
 
         .billing-toggle span.active {
-            color: #fff;
+            color: #002253;
             font-weight: 600;
         }
 
         .toggle-switch {
             width: 50px;
             height: 26px;
-            background: #22c55e;
+            background: #0858F7;
             border-radius: 13px;
             position: relative;
             cursor: pointer;
@@ -90,7 +117,7 @@
         }
 
         .save-badge {
-            background: #22c55e;
+            background: #3CAA3C;
             color: white;
             padding: 4px 10px;
             border-radius: 12px;
@@ -110,9 +137,9 @@
             padding: 12px 32px;
             font-size: 14px;
             font-weight: 500;
-            color: #a0a0a0;
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: #66666B;
+            background: #FFFFFF;
+            border: 1px solid #DFDFE0;
             cursor: pointer;
             transition: all 0.2s;
         }
@@ -127,31 +154,33 @@
         }
 
         .tab-btn.active {
-            background: rgba(34, 197, 94, 0.2);
-            color: #22c55e;
-            border-color: #22c55e;
+            background: #EBF3FE;
+            color: #0858F7;
+            border-color: #0858F7;
         }
 
-        .change-callout {
-            background: rgba(34, 197, 94, 0.2);
-            border: 2px dashed #22c55e;
-            border-radius: 12px;
-            padding: 16px 24px;
-            margin-bottom: 24px;
-            text-align: center;
+        /* Design annotation style - looks like a note, not a feature */
+        .design-annotation {
+            border-left: 3px solid #8B8B90;
+            padding: 8px 0 8px 16px;
+            margin: 24px 0;
+            background: transparent;
         }
 
-        .change-callout h3 {
-            color: #22c55e;
-            font-size: 14px;
+        .design-annotation .annotation-label {
+            font-size: 11px;
+            font-weight: 600;
             text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 8px;
+            letter-spacing: 0.5px;
+            color: #66666B;
+            margin-bottom: 4px;
         }
 
-        .change-callout p {
-            color: #fff;
-            font-size: 16px;
+        .design-annotation .annotation-text {
+            font-size: 13px;
+            font-style: italic;
+            color: #8B8B90;
+            line-height: 1.5;
         }
 
         .pricing-grid {
@@ -162,22 +191,23 @@
         }
 
         .tier-card {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: #FFFFFF;
+            border: 1px solid #DFDFE0;
             border-radius: 16px;
             padding: 28px 24px;
             position: relative;
-            transition: transform 0.2s, border-color 0.2s;
+            transition: transform 0.2s, box-shadow 0.2s;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
         }
 
         .tier-card:hover {
             transform: translateY(-4px);
-            border-color: rgba(34, 197, 94, 0.5);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
         }
 
         .tier-card.popular {
-            border-color: #7c3aed;
-            background: rgba(124, 58, 237, 0.1);
+            border-color: #EA4BCD;
+            background: linear-gradient(180deg, rgba(234, 75, 205, 0.03) 0%, #FFFFFF 100%);
         }
 
         .popular-badge {
@@ -185,7 +215,7 @@
             top: -12px;
             left: 50%;
             transform: translateX(-50%);
-            background: linear-gradient(90deg, #7c3aed, #a78bfa);
+            background: #EA4BCD;
             color: white;
             padding: 6px 16px;
             border-radius: 20px;
@@ -198,6 +228,7 @@
             font-size: 20px;
             font-weight: 600;
             margin-bottom: 8px;
+            color: #002253;
         }
 
         .tier-price {
@@ -207,36 +238,37 @@
         .tier-price .amount {
             font-size: 40px;
             font-weight: 700;
+            color: #002253;
         }
 
         .tier-price .period {
             font-size: 16px;
-            color: #a0a0a0;
+            color: #66666B;
         }
 
         .tier-price .annual {
             font-size: 12px;
-            color: #22c55e;
+            color: #3CAA3C;
             display: block;
             margin-top: 4px;
         }
 
-        /* NEW: ROI Anchor */
+        /* ROI Anchor */
         .roi-anchor {
             font-size: 11px;
-            color: #22c55e;
+            color: #3CAA3C;
             margin-bottom: 8px;
             font-style: italic;
         }
 
-        /* CHANGE 2: Persona Labels */
+        /* Persona Labels */
         .persona-label {
             font-size: 13px;
-            color: #a0a0a0;
+            color: #66666B;
             font-style: italic;
             margin-bottom: 16px;
             padding-bottom: 16px;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            border-bottom: 1px solid #DFDFE0;
         }
 
         .tier-features {
@@ -246,7 +278,7 @@
 
         .tier-features li {
             font-size: 14px;
-            color: #d0d0d0;
+            color: #252527;
             margin-bottom: 12px;
             display: flex;
             align-items: flex-start;
@@ -255,7 +287,7 @@
 
         .tier-features li::before {
             content: '✓';
-            color: #22c55e;
+            color: #0858F7;
             font-weight: bold;
             flex-shrink: 0;
         }
@@ -272,34 +304,35 @@
         }
 
         .tier-cta.primary {
-            background: #7c3aed;
+            background: #0858F7;
             color: white;
         }
 
         .tier-cta.primary:hover {
-            background: #6d28d9;
+            background: #0747D6;
         }
 
         .tier-cta.secondary {
-            background: rgba(255, 255, 255, 0.1);
-            color: white;
+            background: transparent;
+            color: #0858F7;
+            border: 2px solid #0858F7;
         }
 
         .tier-cta.secondary:hover {
-            background: rgba(255, 255, 255, 0.15);
+            background: rgba(8, 88, 247, 0.05);
         }
 
         .cta-subtext {
             text-align: center;
             font-size: 12px;
-            color: #a0a0a0;
+            color: #66666B;
             margin-top: 8px;
         }
 
-        /* CHANGE 1: Credit Calculator */
+        /* Credit Calculator */
         .calculator-section {
-            background: rgba(34, 197, 94, 0.05);
-            border: 1px solid rgba(34, 197, 94, 0.2);
+            background: #FAF9F5;
+            border: 1px solid #DFDFE0;
             border-radius: 16px;
             padding: 32px;
             margin-bottom: 40px;
@@ -310,7 +343,7 @@
             font-weight: 600;
             margin-bottom: 24px;
             text-align: center;
-            color: #22c55e;
+            color: #002253;
         }
 
         .calculator-row {
@@ -320,21 +353,22 @@
             gap: 12px;
             margin-bottom: 16px;
             font-size: 16px;
+            color: #252527;
         }
 
         .calculator-select {
             padding: 10px 16px;
-            background: rgba(255, 255, 255, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            background: #FFFFFF;
+            border: 1px solid #DFDFE0;
             border-radius: 8px;
-            color: #fff;
+            color: #002253;
             font-size: 16px;
             cursor: pointer;
         }
 
         .calculator-result {
-            background: rgba(34, 197, 94, 0.1);
-            border: 1px solid rgba(34, 197, 94, 0.3);
+            background: #FFFFFF;
+            border: 1px solid #DFDFE0;
             border-radius: 12px;
             padding: 24px;
             margin-top: 24px;
@@ -344,27 +378,27 @@
         .calculator-result .credits {
             font-size: 32px;
             font-weight: 700;
-            color: #22c55e;
+            color: #002253;
             margin-bottom: 8px;
         }
 
         .calculator-result .recommendation {
-            background: rgba(124, 58, 237, 0.2);
-            border: 1px solid rgba(124, 58, 237, 0.4);
+            background: #EBF3FE;
+            border: 1px solid #C0DEFD;
             border-radius: 8px;
             padding: 16px;
             margin-top: 16px;
         }
 
         .calculator-result .recommendation .rec-title {
-            color: #a78bfa;
+            color: #0858F7;
             font-weight: 600;
             font-size: 14px;
             margin-bottom: 8px;
         }
 
         .calculator-result .recommendation p {
-            color: #d0d0d0;
+            color: #252527;
             font-size: 14px;
         }
 
@@ -372,7 +406,7 @@
             display: inline-block;
             margin-top: 16px;
             padding: 12px 24px;
-            background: #7c3aed;
+            background: #0858F7;
             color: white;
             border-radius: 8px;
             text-decoration: none;
@@ -380,13 +414,18 @@
             font-size: 14px;
         }
 
-        /* CHANGE 3: What Happens Section */
+        .calculator-result .rec-cta:hover {
+            background: #0747D6;
+        }
+
+        /* What Happens Section */
         .what-happens-section {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: #FFFFFF;
+            border: 1px solid #DFDFE0;
             border-radius: 16px;
             padding: 32px;
             margin-bottom: 40px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
         }
 
         .what-happens-section h2 {
@@ -396,6 +435,7 @@
             display: flex;
             align-items: center;
             gap: 12px;
+            color: #002253;
         }
 
         .what-happens-section h2 .icon {
@@ -409,7 +449,7 @@
 
         .what-happens-list li {
             font-size: 15px;
-            color: #d0d0d0;
+            color: #252527;
             margin-bottom: 12px;
             padding-left: 28px;
             position: relative;
@@ -419,15 +459,15 @@
             content: '→';
             position: absolute;
             left: 0;
-            color: #22c55e;
+            color: #0858F7;
         }
 
         .what-happens-reassurance {
             font-size: 14px;
-            color: #22c55e;
+            color: #3CAA3C;
             font-style: italic;
             padding-top: 16px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            border-top: 1px solid #DFDFE0;
         }
 
         /* Trust badges */
@@ -437,8 +477,8 @@
             gap: 32px;
             margin-bottom: 40px;
             padding: 24px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            border-top: 1px solid #DFDFE0;
+            border-bottom: 1px solid #DFDFE0;
         }
 
         .trust-badge {
@@ -446,13 +486,13 @@
             align-items: center;
             gap: 8px;
             font-size: 14px;
-            color: #a0a0a0;
+            color: #66666B;
         }
 
         .trust-badge svg {
             width: 20px;
             height: 20px;
-            fill: #22c55e;
+            fill: #3CAA3C;
         }
 
         /* Responsive */
@@ -470,9 +510,14 @@
     </style>
 </head>
 <body>
-    <div class="mockup-badge">MOCKUP: Approach B - Transparency</div>
+    <!-- Decorative Clouds -->
+    <img src="left-cloud.svg" alt="" class="cloud-left">
+    <img src="right-cloud.svg" alt="" class="cloud-right">
 
-    <div class="container">
+    <div class="page-content">
+        <div class="mockup-badge">MOCKUP: Approach B - Transparency</div>
+
+        <div class="container">
         <div class="header">
             <h1>Choose the right plan for you</h1>
         </div>
@@ -490,93 +535,10 @@
             <button class="tab-btn">Team</button>
         </div>
 
-        <!-- CHANGE 2: Persona Labels on Each Card -->
-        <div class="change-callout">
-            <h3>🔄 Change 2: "Perfect for" Persona Labels</h3>
-            <p>Each tier now includes guidance on who it's best suited for.</p>
-        </div>
-
-        <div class="pricing-grid">
-            <!-- Free Tier -->
-            <div class="tier-card">
-                <div class="tier-name">Free</div>
-                <div class="tier-price">
-                    <span class="amount">$0</span>
-                </div>
-                <div class="persona-label">Perfect for: Trying Gamma on your first project</div>
-                <ul class="tier-features">
-                    <li>400 credits to start</li>
-                    <li>10 cards per prompt</li>
-                    <li>Basic AI models</li>
-                    <li>PDF & PPTX export</li>
-                </ul>
-                <button class="tier-cta secondary">Start for free</button>
-                <div class="cta-subtext">No credit card required</div>
-            </div>
-
-            <!-- Plus Tier -->
-            <div class="tier-card">
-                <div class="tier-name">Plus</div>
-                <div class="tier-price">
-                    <span class="amount">$8</span>
-                    <span class="period">/month</span>
-                </div>
-                <div class="roi-anchor">Less than a coffee. Saves 8+ hours/month.</div>
-                <div class="persona-label">Perfect for: Individuals creating 2-5 presentations/month</div>
-                <ul class="tier-features">
-                    <li>1,000 credits/month</li>
-                    <li>15 cards per prompt</li>
-                    <li>Standard AI models</li>
-                    <li>Remove "Made with Gamma"</li>
-                </ul>
-                <button class="tier-cta primary">Start free trial</button>
-            </div>
-
-            <!-- Pro Tier - POPULAR -->
-            <div class="tier-card popular">
-                <div class="popular-badge">★ Most Popular</div>
-                <div class="tier-name">Pro</div>
-                <div class="tier-price">
-                    <span class="amount">$18</span>
-                    <span class="period">/month</span>
-                </div>
-                <div class="roi-anchor">$18/mo saves $500+ in design time monthly.</div>
-                <div class="persona-label">Perfect for: Power users, API access, or high-volume creators</div>
-                <ul class="tier-features">
-                    <li>4,000 credits/month</li>
-                    <li>30 cards per prompt</li>
-                    <li>Premium AI models</li>
-                    <li>Custom fonts & branding</li>
-                    <li>API access</li>
-                    <li>Priority support</li>
-                </ul>
-                <button class="tier-cta primary">Start free trial</button>
-            </div>
-
-            <!-- Ultra Tier -->
-            <div class="tier-card">
-                <div class="tier-name">Ultra</div>
-                <div class="tier-price">
-                    <span class="amount">$90</span>
-                    <span class="period">/month</span>
-                </div>
-                <div class="persona-label">Perfect for: Agencies, content creators, or 10+ presentations/week</div>
-                <ul class="tier-features">
-                    <li>Unlimited credits</li>
-                    <li>60 cards per prompt</li>
-                    <li>Most advanced AI models</li>
-                    <li>Everything in Pro</li>
-                    <li>Highest generation limits</li>
-                    <li>Premium support</li>
-                </ul>
-                <button class="tier-cta secondary">Start free trial</button>
-            </div>
-        </div>
-
-        <!-- CHANGE 1: Credit Calculator -->
-        <div class="change-callout">
-            <h3>🔄 Change 1: Interactive Credit Calculator</h3>
-            <p>Helps users understand how many credits they actually need.</p>
+        <!-- CHANGE 1: Credit Calculator (shown first) -->
+        <div class="design-annotation">
+            <div class="annotation-label">Note: Change 1 — Interactive Credit Calculator</div>
+            <div class="annotation-text">Helps users understand how many credits they actually need based on their usage. Reduces confusion and builds confidence in plan selection.</div>
         </div>
 
         <div class="calculator-section">
@@ -616,10 +578,93 @@
             </div>
         </div>
 
+        <!-- CHANGE 2: Persona Labels on Each Card -->
+        <div class="design-annotation">
+            <div class="annotation-label">Note: Change 2 — "Perfect for" Persona Labels</div>
+            <div class="annotation-text">Each tier now includes guidance on who it's best suited for. Helps users self-select the right plan.</div>
+        </div>
+
+        <div class="pricing-grid">
+            <!-- Free Tier -->
+            <div class="tier-card">
+                <div class="tier-name">Free</div>
+                <div class="tier-price">
+                    <span class="amount">$0</span>
+                </div>
+                <div class="persona-label">Perfect for: Trying Gamma on your first project</div>
+                <ul class="tier-features">
+                    <li>400 credits to start</li>
+                    <li>10 cards per prompt</li>
+                    <li>Basic AI models</li>
+                    <li>PDF & PPTX export</li>
+                </ul>
+                <button class="tier-cta secondary">Start for free</button>
+                <div class="cta-subtext">No credit card required</div>
+            </div>
+
+            <!-- Plus Tier -->
+            <div class="tier-card">
+                <div class="tier-name">Plus</div>
+                <div class="tier-price">
+                    <span class="amount">$8</span>
+                    <span class="period">/month</span>
+                </div>
+                <div class="roi-anchor">Less than a coffee. Saves 8+ hours/month.</div>
+                <div class="persona-label">Perfect for: Individuals creating 2-5 presentations/month</div>
+                <ul class="tier-features">
+                    <li>1,000 credits/month</li>
+                    <li>15 cards per prompt</li>
+                    <li>Standard AI models</li>
+                    <li>Remove "Made with Gamma"</li>
+                </ul>
+                <button class="tier-cta primary">Get started</button>
+            </div>
+
+            <!-- Pro Tier - POPULAR -->
+            <div class="tier-card popular">
+                <div class="popular-badge">Most Popular</div>
+                <div class="tier-name">Pro</div>
+                <div class="tier-price">
+                    <span class="amount">$18</span>
+                    <span class="period">/month</span>
+                </div>
+                <div class="roi-anchor">$18/mo saves $500+ in design time monthly.</div>
+                <div class="persona-label">Perfect for: Power users, API access, or high-volume creators</div>
+                <ul class="tier-features">
+                    <li>4,000 credits/month</li>
+                    <li>30 cards per prompt</li>
+                    <li>Premium AI models</li>
+                    <li>Custom fonts & branding</li>
+                    <li>API access</li>
+                    <li>Priority support</li>
+                </ul>
+                <button class="tier-cta primary">Get started</button>
+            </div>
+
+            <!-- Ultra Tier -->
+            <div class="tier-card">
+                <div class="tier-name">Ultra</div>
+                <div class="tier-price">
+                    <span class="amount">$90</span>
+                    <span class="period">/month</span>
+                </div>
+                <div class="persona-label">Perfect for: Agencies, content creators, or 10+ presentations/week</div>
+                <ul class="tier-features">
+                    <li>Unlimited credits</li>
+                    <li>60 cards per prompt</li>
+                    <li>Most advanced AI models</li>
+                    <li>Everything in Pro</li>
+                    <li>Highest generation limits</li>
+                    <li>Premium support</li>
+                </ul>
+                <button class="tier-cta secondary">Get started</button>
+            </div>
+        </div>
+
         <!-- CHANGE 3: What Happens When Credits Run Out -->
-        <div class="change-callout">
-            <h3>🔄 Change 3: Credit Anxiety Reducer</h3>
-            <p>Clear explanation of what happens when credits run out - removes "fair use" anxiety.</p>
+        <div class="design-annotation">
+            <div class="annotation-label">Note: Change 3 — Credit Anxiety Reducer</div>
+            <div class="annotation-text">Clear explanation of what happens when credits run out. Removes "fair use" anxiety and builds trust.</div>
         </div>
 
         <div class="what-happens-section">
@@ -648,6 +693,7 @@
                 <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
                 Trust Center
             </div>
+        </div>
         </div>
     </div>
 </body>

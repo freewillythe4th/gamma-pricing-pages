@@ -13,9 +13,38 @@
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
-            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f0f23 100%);
+            background: linear-gradient(180deg, #E8F1FF 0%, #F0F6FF 15%, #FFFFFF 30%);
             min-height: 100vh;
-            color: #fff;
+            color: #252527;
+            padding: 0;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        /* Cloud decorations */
+        .cloud-left {
+            position: fixed;
+            left: -100px;
+            bottom: 50px;
+            width: 400px;
+            height: auto;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .cloud-right {
+            position: fixed;
+            right: -100px;
+            top: 200px;
+            width: 450px;
+            height: auto;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .page-content {
+            position: relative;
+            z-index: 1;
             padding: 40px 20px;
         }
 
@@ -23,7 +52,7 @@
             position: fixed;
             top: 20px;
             left: 20px;
-            background: #7c3aed;
+            background: #0858F7;
             color: white;
             padding: 8px 16px;
             border-radius: 20px;
@@ -46,9 +75,7 @@
             font-size: 42px;
             font-weight: 700;
             margin-bottom: 16px;
-            background: linear-gradient(90deg, #fff, #a78bfa);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            color: #002253;
         }
 
         .billing-toggle {
@@ -61,18 +88,18 @@
 
         .billing-toggle span {
             font-size: 14px;
-            color: #a0a0a0;
+            color: #66666B;
         }
 
         .billing-toggle span.active {
-            color: #fff;
+            color: #002253;
             font-weight: 600;
         }
 
         .toggle-switch {
             width: 50px;
             height: 26px;
-            background: #7c3aed;
+            background: #0858F7;
             border-radius: 13px;
             position: relative;
             cursor: pointer;
@@ -90,7 +117,7 @@
         }
 
         .save-badge {
-            background: #22c55e;
+            background: #3CAA3C;
             color: white;
             padding: 4px 10px;
             border-radius: 12px;
@@ -98,27 +125,28 @@
             font-weight: 600;
         }
 
-        /* KEY CHANGE: Single row of 4 tiers - NO TOGGLE */
-        .change-callout {
-            background: rgba(124, 58, 237, 0.2);
-            border: 2px dashed #7c3aed;
-            border-radius: 12px;
-            padding: 16px 24px;
-            margin-bottom: 24px;
-            text-align: center;
+        /* Design annotation style - looks like a note, not a feature */
+        .design-annotation {
+            border-left: 3px solid #8B8B90;
+            padding: 8px 0 8px 16px;
+            margin: 24px 0;
+            background: transparent;
         }
 
-        .change-callout h3 {
-            color: #a78bfa;
-            font-size: 14px;
+        .design-annotation .annotation-label {
+            font-size: 11px;
+            font-weight: 600;
             text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 8px;
+            letter-spacing: 0.5px;
+            color: #66666B;
+            margin-bottom: 4px;
         }
 
-        .change-callout p {
-            color: #fff;
-            font-size: 16px;
+        .design-annotation .annotation-text {
+            font-size: 13px;
+            font-style: italic;
+            color: #8B8B90;
+            line-height: 1.5;
         }
 
         .pricing-grid {
@@ -129,22 +157,23 @@
         }
 
         .tier-card {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: #FFFFFF;
+            border: 1px solid #DFDFE0;
             border-radius: 16px;
             padding: 28px 24px;
             position: relative;
-            transition: transform 0.2s, border-color 0.2s;
+            transition: transform 0.2s, box-shadow 0.2s;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
         }
 
         .tier-card:hover {
             transform: translateY(-4px);
-            border-color: rgba(124, 58, 237, 0.5);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
         }
 
         .tier-card.popular {
-            border-color: #7c3aed;
-            background: rgba(124, 58, 237, 0.1);
+            border-color: #EA4BCD;
+            background: linear-gradient(180deg, rgba(234, 75, 205, 0.03) 0%, #FFFFFF 100%);
         }
 
         .popular-badge {
@@ -152,7 +181,7 @@
             top: -12px;
             left: 50%;
             transform: translateX(-50%);
-            background: linear-gradient(90deg, #7c3aed, #a78bfa);
+            background: #EA4BCD;
             color: white;
             padding: 6px 16px;
             border-radius: 20px;
@@ -165,6 +194,7 @@
             font-size: 20px;
             font-weight: 600;
             margin-bottom: 8px;
+            color: #002253;
         }
 
         .tier-price {
@@ -174,26 +204,27 @@
         .tier-price .amount {
             font-size: 40px;
             font-weight: 700;
+            color: #002253;
         }
 
         .tier-price .period {
             font-size: 16px;
-            color: #a0a0a0;
+            color: #66666B;
         }
 
         .tier-price .annual {
             font-size: 12px;
-            color: #22c55e;
+            color: #3CAA3C;
             display: block;
             margin-top: 4px;
         }
 
         .tier-tagline {
             font-size: 14px;
-            color: #a0a0a0;
+            color: #66666B;
             margin-bottom: 20px;
             padding-bottom: 20px;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            border-bottom: 1px solid #DFDFE0;
         }
 
         .tier-features {
@@ -203,7 +234,7 @@
 
         .tier-features li {
             font-size: 14px;
-            color: #d0d0d0;
+            color: #252527;
             margin-bottom: 12px;
             display: flex;
             align-items: flex-start;
@@ -212,7 +243,7 @@
 
         .tier-features li::before {
             content: '✓';
-            color: #22c55e;
+            color: #0858F7;
             font-weight: bold;
             flex-shrink: 0;
         }
@@ -229,34 +260,35 @@
         }
 
         .tier-cta.primary {
-            background: #7c3aed;
+            background: #0858F7;
             color: white;
         }
 
         .tier-cta.primary:hover {
-            background: #6d28d9;
+            background: #0747D6;
         }
 
         .tier-cta.secondary {
-            background: rgba(255, 255, 255, 0.1);
-            color: white;
+            background: transparent;
+            color: #0858F7;
+            border: 2px solid #0858F7;
         }
 
         .tier-cta.secondary:hover {
-            background: rgba(255, 255, 255, 0.15);
+            background: rgba(8, 88, 247, 0.05);
         }
 
         .cta-subtext {
             text-align: center;
             font-size: 12px;
-            color: #a0a0a0;
+            color: #66666B;
             margin-top: 8px;
         }
 
-        /* CHANGE 3: Credit Clarity Callout */
+        /* Credit Clarity Callout */
         .credit-callout {
-            background: rgba(124, 58, 237, 0.1);
-            border: 1px solid rgba(124, 58, 237, 0.3);
+            background: #EBF3FE;
+            border: 1px solid #C0DEFD;
             border-radius: 12px;
             padding: 24px;
             margin-bottom: 40px;
@@ -273,21 +305,21 @@
             font-size: 16px;
             font-weight: 600;
             margin-bottom: 8px;
-            color: #a78bfa;
+            color: #002253;
         }
 
         .credit-callout p {
             font-size: 14px;
-            color: #d0d0d0;
+            color: #252527;
             line-height: 1.6;
         }
 
         .credit-callout .highlight {
             font-weight: 600;
-            color: #fff;
+            color: #002253;
         }
 
-        /* CHANGE 2: Feature Comparison Matrix */
+        /* Feature Comparison Matrix */
         .comparison-section {
             margin-bottom: 40px;
         }
@@ -297,64 +329,63 @@
             font-weight: 600;
             margin-bottom: 24px;
             text-align: center;
+            color: #002253;
         }
 
         .comparison-table {
             width: 100%;
             border-collapse: collapse;
-            background: rgba(255, 255, 255, 0.03);
+            background: #FFFFFF;
             border-radius: 12px;
             overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+            border: 1px solid #DFDFE0;
         }
 
         .comparison-table th,
         .comparison-table td {
             padding: 16px 20px;
             text-align: left;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            border-bottom: 1px solid #DFDFE0;
         }
 
         .comparison-table th {
-            background: rgba(255, 255, 255, 0.05);
+            background: #FAF9F5;
             font-weight: 600;
             font-size: 14px;
-            color: #a0a0a0;
+            color: #002253;
         }
 
         .comparison-table th.team-col {
-            background: rgba(124, 58, 237, 0.2);
-            color: #a78bfa;
+            background: rgba(234, 75, 205, 0.08);
+            color: #002253;
         }
 
         .comparison-table td {
             font-size: 14px;
-            color: #d0d0d0;
+            color: #252527;
         }
 
         .comparison-table td.team-col {
-            background: rgba(124, 58, 237, 0.05);
+            background: rgba(234, 75, 205, 0.03);
         }
 
         .comparison-table .feature-name {
             font-weight: 500;
-            color: #fff;
+            color: #002253;
         }
 
         .comparison-table .check {
-            color: #22c55e;
+            color: #0858F7;
             font-weight: bold;
         }
 
         .comparison-table .no {
-            color: #4a4a4a;
+            color: #DFDFE0;
         }
 
-        .comparison-table tr:nth-child(even) td {
-            background: rgba(255, 255, 255, 0.02);
-        }
-
-        .comparison-table tr:nth-child(even) td.team-col {
-            background: rgba(124, 58, 237, 0.08);
+        .comparison-table tr:last-child td {
+            border-bottom: none;
         }
 
         /* Trust badges */
@@ -364,8 +395,8 @@
             gap: 32px;
             margin-bottom: 40px;
             padding: 24px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            border-top: 1px solid #DFDFE0;
+            border-bottom: 1px solid #DFDFE0;
         }
 
         .trust-badge {
@@ -373,13 +404,13 @@
             align-items: center;
             gap: 8px;
             font-size: 14px;
-            color: #a0a0a0;
+            color: #66666B;
         }
 
         .trust-badge svg {
             width: 20px;
             height: 20px;
-            fill: #22c55e;
+            fill: #3CAA3C;
         }
 
         /* Responsive */
@@ -397,9 +428,14 @@
     </style>
 </head>
 <body>
-    <div class="mockup-badge">MOCKUP: Approach A - Simplification</div>
+    <!-- Decorative Clouds -->
+    <img src="left-cloud.svg" alt="" class="cloud-left">
+    <img src="right-cloud.svg" alt="" class="cloud-right">
 
-    <div class="container">
+    <div class="page-content">
+        <div class="mockup-badge">MOCKUP: Approach A - Simplification</div>
+
+        <div class="container">
         <div class="header">
             <h1>Choose the right plan for you</h1>
         </div>
@@ -411,10 +447,10 @@
             <span class="save-badge">Save up to 28%</span>
         </div>
 
-        <!-- KEY CHANGE 1: No Toggle, Single Row of 4 Tiers -->
-        <div class="change-callout">
-            <h3>🔄 Change 1: Simplified Structure</h3>
-            <p>Removed Individual/Team toggle. All 4 tiers visible in single row. "Most Popular" moved to Team tier.</p>
+        <!-- CHANGE 1: No Toggle, Single Row of 4 Tiers -->
+        <div class="design-annotation">
+            <div class="annotation-label">Note: Change 1 — Simplified Structure</div>
+            <div class="annotation-text">Removed Individual/Team toggle. All 4 tiers visible in single row. "Most Popular" badge moved to Team tier to drive team adoption.</div>
         </div>
 
         <div class="pricing-grid">
@@ -452,12 +488,12 @@
                     <li>Custom branding & fonts</li>
                     <li>API access</li>
                 </ul>
-                <button class="tier-cta primary">Start free trial</button>
+                <button class="tier-cta primary">Get started</button>
             </div>
 
             <!-- Team Tier - POPULAR -->
             <div class="tier-card popular">
-                <div class="popular-badge">★ Most Popular</div>
+                <div class="popular-badge">Most Popular</div>
                 <div class="tier-name">Team</div>
                 <div class="tier-price">
                     <span class="amount">$20</span>
@@ -473,7 +509,7 @@
                     <li>Admin controls</li>
                     <li>Centralized billing</li>
                 </ul>
-                <button class="tier-cta primary">Start free trial</button>
+                <button class="tier-cta primary">Get started</button>
             </div>
 
             <!-- Business Tier -->
@@ -494,14 +530,14 @@
                     <li>Advanced data controls</li>
                 </ul>
                 <button class="tier-cta secondary">Contact sales</button>
-                <div class="cta-subtext">Or start with 5 seats →</div>
+                <div class="cta-subtext">For 100+ seats. Need fewer? Start free trial above.</div>
             </div>
         </div>
 
-        <!-- CHANGE 3: Credit Clarity Callout -->
-        <div class="change-callout">
-            <h3>🔄 Change 3: Credit Clarity</h3>
-            <p>New callout explaining what credits mean in practical terms.</p>
+        <!-- CHANGE 2: Credit Clarity Callout -->
+        <div class="design-annotation">
+            <div class="annotation-label">Note: Change 2 — Credit Clarity</div>
+            <div class="annotation-text">New callout explaining what credits mean in practical terms. Reduces confusion about value.</div>
         </div>
 
         <div class="credit-callout">
@@ -516,10 +552,10 @@
             </div>
         </div>
 
-        <!-- CHANGE 2: Feature Comparison Matrix -->
-        <div class="change-callout">
-            <h3>🔄 Change 2: Feature Comparison Matrix</h3>
-            <p>New comparison table helps users see exactly what's included in each tier.</p>
+        <!-- CHANGE 3: Feature Comparison Matrix -->
+        <div class="design-annotation">
+            <div class="annotation-label">Note: Change 3 — Feature Comparison Matrix</div>
+            <div class="annotation-text">New comparison table helps users see exactly what's included in each tier at a glance.</div>
         </div>
 
         <div class="comparison-section">
@@ -530,7 +566,7 @@
                         <th>Feature</th>
                         <th>Free</th>
                         <th>Pro</th>
-                        <th class="team-col">Team ★</th>
+                        <th class="team-col">Team</th>
                         <th>Business</th>
                     </tr>
                 </thead>
@@ -623,6 +659,7 @@
                 <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
                 GDPR Compliant
             </div>
+        </div>
         </div>
     </div>
 </body>
