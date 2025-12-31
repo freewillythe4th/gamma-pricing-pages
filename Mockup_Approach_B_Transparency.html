@@ -206,6 +206,26 @@
             box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
         }
 
+        /* WADE FEEDBACK: Style Free tier as "obviously inferior" */
+        .tier-card.free-tier {
+            opacity: 0.75;
+            background: rgba(255, 255, 255, 0.6);
+            border-style: dashed;
+            border-color: #C0C0C5;
+            transform: scale(0.97);
+        }
+
+        .tier-card.free-tier:hover {
+            transform: scale(0.97) translateY(-4px);
+            opacity: 0.85;
+        }
+
+        .tier-card.free-tier .tier-cta {
+            background: rgba(8, 88, 247, 0.05);
+            color: #66666B;
+            border-color: #C0C0C5;
+        }
+
         .tier-card.popular {
             border-color: #EA4BCD;
             background: linear-gradient(180deg, rgba(234, 75, 205, 0.03) 0%, #FFFFFF 100%);
@@ -510,6 +530,44 @@
             background: #0747D6;
         }
 
+        /* WADE FEEDBACK: Credit tooltips */
+        .credit-tooltip {
+            position: relative;
+            cursor: help;
+            border-bottom: 1px dotted #0858F7;
+        }
+
+        .credit-tooltip::after {
+            content: attr(data-tooltip);
+            position: absolute;
+            bottom: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 10px 14px;
+            background: #002253;
+            color: white;
+            border-radius: 8px;
+            font-size: 12px;
+            white-space: nowrap;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.2s;
+            z-index: 100;
+            margin-bottom: 8px;
+        }
+
+        .credit-tooltip:hover::after {
+            opacity: 1;
+        }
+
+        .tooltip-hint {
+            font-size: 11px;
+            color: #66666B;
+            text-align: center;
+            margin-top: 12px;
+            font-style: italic;
+        }
+
         /* What Happens Section */
         .what-happens-section {
             background: #FFFFFF;
@@ -699,8 +757,8 @@
 
         <!-- INDIVIDUAL PLANS -->
         <div class="pricing-grid" id="individual-plans">
-            <!-- Free Tier -->
-            <div class="tier-card">
+            <!-- Free Tier - WADE FEEDBACK: styled as "obviously inferior" -->
+            <div class="tier-card free-tier">
                 <div class="tier-name">Free</div>
                 <div class="tier-price">
                     <span class="amount">$0</span>
@@ -744,6 +802,7 @@
                     <span class="amount">$90</span>
                     <span class="period">/month</span>
                 </div>
+                <div class="roi-anchor">For agencies: replaces $2,000+/mo in design contractor costs.</div>
                 <div class="persona-label">Perfect for: Agencies, content creators, or 10+ presentations/week</div>
                 <ul class="tier-features">
                     <li>Unlimited credits</li>
@@ -870,6 +929,14 @@
                 </div>
 
                 <a href="#" class="rec-cta" id="rec-cta">Get Pro →</a>
+            </div>
+
+            <!-- WADE FEEDBACK: Credit usage tooltips explaining what credits mean -->
+            <p class="tooltip-hint">💡 Hover to learn more about credit usage:</p>
+            <div style="display: flex; justify-content: center; gap: 24px; margin-top: 16px; flex-wrap: wrap;">
+                <span class="credit-tooltip" data-tooltip="Basic text slides use ~5 credits">📝 Text slide: ~5 credits</span>
+                <span class="credit-tooltip" data-tooltip="AI-generated images add ~15 credits per image">🖼️ Image slide: ~15-20 credits</span>
+                <span class="credit-tooltip" data-tooltip="Complex layouts with multiple AI elements">📊 Data viz: ~20-30 credits</span>
             </div>
         </div>
 
