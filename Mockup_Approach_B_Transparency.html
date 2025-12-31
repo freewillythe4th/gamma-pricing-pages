@@ -330,6 +330,88 @@
             margin-top: 8px;
         }
 
+        /* Team Plans Grid - 2 columns */
+        .team-grid {
+            grid-template-columns: repeat(2, 1fr) !important;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .tier-tagline {
+            font-size: 14px;
+            color: #66666B;
+            margin-bottom: 16px;
+            line-height: 1.4;
+        }
+
+        .tier-annual {
+            font-size: 13px;
+            color: #66666B;
+            margin-bottom: 20px;
+        }
+
+        .seat-selector {
+            margin-bottom: 16px;
+        }
+
+        .seat-selector label {
+            display: block;
+            font-size: 13px;
+            color: #66666B;
+            margin-bottom: 8px;
+        }
+
+        .seat-input {
+            width: 100px;
+            padding: 10px 12px;
+            border: 1px solid #DFDFE0;
+            border-radius: 8px;
+            font-size: 16px;
+            color: #002253;
+        }
+
+        .tier-highlights {
+            margin: 20px 0;
+            padding: 16px 0;
+            border-top: 1px solid #DFDFE0;
+        }
+
+        .highlight-item {
+            font-size: 14px;
+            color: #0858F7;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+
+        .tier-includes {
+            font-size: 14px;
+            color: #66666B;
+            margin-bottom: 12px;
+            font-weight: 500;
+        }
+
+        .contact-sales-banner {
+            background: #FAF9F5;
+            border: 1px solid #DFDFE0;
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+            margin-bottom: 64px;
+            font-size: 15px;
+            color: #252527;
+        }
+
+        .contact-sales-banner a {
+            color: #0858F7;
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        .contact-sales-banner a:hover {
+            text-decoration: underline;
+        }
+
         /* Credit Calculator */
         .calculator-section {
             background: #FAF9F5;
@@ -603,13 +685,20 @@
             <span class="save-badge">Save up to 28%</span>
         </div>
 
+        <!-- Individual/Team Tab Selector -->
+        <div class="tab-selector">
+            <button class="tab-btn active" onclick="showIndividualPlans()">Individual</button>
+            <button class="tab-btn" onclick="showTeamPlans()">Team</button>
+        </div>
+
         <!-- CHANGE 1: Persona Labels on Each Card -->
         <div class="design-annotation">
             <div class="annotation-label">Note: Change 2 — "Perfect for" Persona Labels</div>
             <div class="annotation-text">Each tier now includes guidance on who it's best suited for. Helps users self-select the right plan.</div>
         </div>
 
-        <div class="pricing-grid">
+        <!-- INDIVIDUAL PLANS -->
+        <div class="pricing-grid" id="individual-plans">
             <!-- Free Tier -->
             <div class="tier-card">
                 <div class="tier-name">Free</div>
@@ -666,6 +755,79 @@
                 </ul>
                 <button class="tier-cta secondary">Get started</button>
             </div>
+        </div>
+
+        <!-- TEAM PLANS (hidden by default) -->
+        <div class="pricing-grid team-grid" id="team-plans" style="display: none;">
+            <!-- Team Tier -->
+            <div class="tier-card">
+                <div class="tier-name">Team</div>
+                <div class="tier-tagline">For teams who want more collaboration, AI, and branding tools</div>
+                <div class="tier-price">
+                    <span class="amount">$20</span>
+                    <span class="period">/ seat / month</span>
+                </div>
+                <div class="tier-annual">$240 per seat, billed annually</div>
+
+                <div class="seat-selector">
+                    <label>Number of seats</label>
+                    <input type="number" value="2" min="2" class="seat-input">
+                </div>
+
+                <button class="tier-cta secondary">Get started</button>
+
+                <div class="tier-highlights">
+                    <div class="highlight-item">✦ Unlimited AI creations</div>
+                    <div class="highlight-item">✦ 6,000 monthly credits per seat</div>
+                </div>
+
+                <div class="tier-includes">Everything in Pro, and:</div>
+                <ul class="tier-features">
+                    <li>Create up to 60 cards per prompt</li>
+                    <li>Centralized billing</li>
+                    <li>Custom company theme</li>
+                    <li>Shared folders & admin controls</li>
+                    <li>Advanced data controls</li>
+                </ul>
+            </div>
+
+            <!-- Business Tier - POPULAR -->
+            <div class="tier-card popular">
+                <div class="popular-badge">Most Popular</div>
+                <div class="tier-name">Business</div>
+                <div class="tier-tagline">For organizations ready to make it official with Gamma</div>
+                <div class="tier-price">
+                    <span class="amount">$40</span>
+                    <span class="period">/ seat / month</span>
+                </div>
+                <div class="tier-annual">$480 per seat, billed annually</div>
+
+                <div class="seat-selector">
+                    <label>Number of seats</label>
+                    <input type="number" value="10" min="5" class="seat-input">
+                </div>
+
+                <button class="tier-cta primary">Get started</button>
+
+                <div class="tier-highlights">
+                    <div class="highlight-item">✦ Unlimited AI creations</div>
+                    <div class="highlight-item">✦ 10,000 monthly credits per seat</div>
+                </div>
+
+                <div class="tier-includes">Everything in Team, and:</div>
+                <ul class="tier-features">
+                    <li>Create up to 60 cards per prompt</li>
+                    <li>SSO authentication</li>
+                    <li>SOC 2 documentation upon request</li>
+                    <li>Access to the most advanced AI models</li>
+                    <li>Advanced data controls</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Contact Sales Banner (shown for Team plans) -->
+        <div class="contact-sales-banner" id="contact-sales" style="display: none;">
+            Need more than 100 seats? <a href="#">Contact sales</a>
         </div>
 
         <!-- CHANGE 2: Credit Calculator (placed BELOW pricing per reviewer feedback) -->
@@ -825,6 +987,28 @@
     </div>
 
     <script>
+        // Tab switching functionality
+        function showIndividualPlans() {
+            document.getElementById('individual-plans').style.display = 'grid';
+            document.getElementById('team-plans').style.display = 'none';
+            document.getElementById('contact-sales').style.display = 'none';
+
+            // Update tab button states
+            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+            document.querySelectorAll('.tab-btn')[0].classList.add('active');
+        }
+
+        function showTeamPlans() {
+            document.getElementById('individual-plans').style.display = 'none';
+            document.getElementById('team-plans').style.display = 'grid';
+            document.getElementById('contact-sales').style.display = 'block';
+
+            // Update tab button states
+            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+            document.querySelectorAll('.tab-btn')[1].classList.add('active');
+        }
+
+        // Calculator functionality
         function updateCalculator() {
             const presentations = parseInt(document.getElementById('presentations-select').value);
             const slides = parseInt(document.getElementById('slides-select').value);
