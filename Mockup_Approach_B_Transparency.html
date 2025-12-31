@@ -46,6 +46,7 @@
             position: relative;
             z-index: 1;
             padding: 40px 20px;
+            padding-top: 80px; /* REVIEWER FEEDBACK: More breathing room from top */
         }
 
         .mockup-badge {
@@ -68,7 +69,7 @@
 
         .header {
             text-align: center;
-            margin-bottom: 40px;
+            margin-bottom: 48px; /* REVIEWER FEEDBACK: More breathing room */
         }
 
         .header h1 {
@@ -185,9 +186,9 @@
 
         .pricing-grid {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
+            grid-template-columns: repeat(3, 1fr); /* REVIEWER: 3 tiers (killed Plus) */
             gap: 20px;
-            margin-bottom: 40px;
+            margin-bottom: 64px; /* REVIEWER FEEDBACK: 64px between sections */
         }
 
         .tier-card {
@@ -335,7 +336,7 @@
             border: 1px solid #DFDFE0;
             border-radius: 16px;
             padding: 32px;
-            margin-bottom: 40px;
+            margin-bottom: 64px; /* REVIEWER FEEDBACK: 64px between sections */
         }
 
         .calculator-section h2 {
@@ -376,18 +377,23 @@
         }
 
         .calculator-result .credits {
-            font-size: 32px;
+            font-size: 28px;
             font-weight: 700;
-            color: #002253;
-            margin-bottom: 8px;
+            color: #EA4BCD; /* REVIEWER FEEDBACK: Pink to highlight insight */
+            background: rgba(234, 75, 205, 0.1);
+            padding: 16px 24px;
+            border-radius: 8px;
+            display: inline-block;
+            margin-bottom: 16px;
         }
 
         .calculator-result .recommendation {
             background: #EBF3FE;
             border: 1px solid #C0DEFD;
             border-radius: 8px;
-            padding: 16px;
+            padding: 12px 24px; /* REVIEWER: ~16px padding, hugs text */
             margin-top: 16px;
+            display: inline-block; /* REVIEWER FEEDBACK: Hug to text, not fill width */
         }
 
         .calculator-result .recommendation .rec-title {
@@ -495,6 +501,70 @@
             fill: #3CAA3C;
         }
 
+        /* Feature Comparison Table */
+        .comparison-section {
+            margin-bottom: 64px;
+        }
+
+        .comparison-section h2 {
+            font-size: 24px;
+            font-weight: 600;
+            text-align: center;
+            margin-bottom: 32px;
+            color: #002253;
+        }
+
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: #FFFFFF;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+        }
+
+        .comparison-table th,
+        .comparison-table td {
+            padding: 16px 20px;
+            text-align: center;
+            border-bottom: 1px solid #DFDFE0;
+        }
+
+        .comparison-table th {
+            background: #FAF9F5;
+            font-weight: 600;
+            color: #002253;
+        }
+
+        .comparison-table th:first-child,
+        .comparison-table td:first-child {
+            text-align: left;
+            font-weight: 500;
+        }
+
+        .comparison-table td {
+            color: #252527;
+            font-size: 14px;
+        }
+
+        .comparison-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .comparison-table .check {
+            color: #0858F7;
+            font-weight: bold;
+        }
+
+        .comparison-table .dash {
+            color: #C0C0C5;
+        }
+
+        .comparison-table .popular-header {
+            background: linear-gradient(180deg, rgba(234, 75, 205, 0.1) 0%, #FAF9F5 100%);
+            color: #EA4BCD;
+        }
+
         /* Responsive */
         @media (max-width: 1024px) {
             .pricing-grid {
@@ -535,50 +605,7 @@
             <button class="tab-btn">Team</button>
         </div>
 
-        <!-- CHANGE 1: Credit Calculator (shown first) -->
-        <div class="design-annotation">
-            <div class="annotation-label">Note: Change 1 — Interactive Credit Calculator</div>
-            <div class="annotation-text">Helps users understand how many credits they actually need based on their usage. Reduces confusion and builds confidence in plan selection.</div>
-        </div>
-
-        <div class="calculator-section">
-            <h2>How many credits do you need?</h2>
-
-            <div class="calculator-row">
-                I create
-                <select class="calculator-select">
-                    <option value="2">1-2</option>
-                    <option value="4" selected>3-5</option>
-                    <option value="8">6-10</option>
-                    <option value="15">10+</option>
-                </select>
-                presentations per month
-            </div>
-
-            <div class="calculator-row">
-                Each presentation has
-                <select class="calculator-select">
-                    <option value="7">5-10</option>
-                    <option value="15" selected>10-20</option>
-                    <option value="25">20-30</option>
-                    <option value="40">30+</option>
-                </select>
-                slides
-            </div>
-
-            <div class="calculator-result">
-                <div class="credits">You'll need approximately: 600 credits/month</div>
-
-                <div class="recommendation">
-                    <div class="rec-title">✓ Recommended: Plus (1,000 credits)</div>
-                    <p>Gives you buffer for revisions and experiments</p>
-                </div>
-
-                <a href="#" class="rec-cta">Get Plus →</a>
-            </div>
-        </div>
-
-        <!-- CHANGE 2: Persona Labels on Each Card -->
+        <!-- CHANGE 1: Persona Labels on Each Card -->
         <div class="design-annotation">
             <div class="annotation-label">Note: Change 2 — "Perfect for" Persona Labels</div>
             <div class="annotation-text">Each tier now includes guidance on who it's best suited for. Helps users self-select the right plan.</div>
@@ -600,24 +627,6 @@
                 </ul>
                 <button class="tier-cta secondary">Start for free</button>
                 <div class="cta-subtext">No credit card required</div>
-            </div>
-
-            <!-- Plus Tier -->
-            <div class="tier-card">
-                <div class="tier-name">Plus</div>
-                <div class="tier-price">
-                    <span class="amount">$8</span>
-                    <span class="period">/month</span>
-                </div>
-                <div class="roi-anchor">Less than a coffee. Saves 8+ hours/month.</div>
-                <div class="persona-label">Perfect for: Individuals creating 2-5 presentations/month</div>
-                <ul class="tier-features">
-                    <li>1,000 credits/month</li>
-                    <li>15 cards per prompt</li>
-                    <li>Standard AI models</li>
-                    <li>Remove "Made with Gamma"</li>
-                </ul>
-                <button class="tier-cta primary">Get started</button>
             </div>
 
             <!-- Pro Tier - POPULAR -->
@@ -661,6 +670,49 @@
             </div>
         </div>
 
+        <!-- CHANGE 2: Credit Calculator (placed BELOW pricing per reviewer feedback) -->
+        <div class="design-annotation">
+            <div class="annotation-label">Note: Change 2 — Interactive Credit Calculator</div>
+            <div class="annotation-text">Secondary to plan selection. Helps users understand how many credits they actually need based on their usage.</div>
+        </div>
+
+        <div class="calculator-section">
+            <h2>How many credits do you need?</h2>
+
+            <div class="calculator-row">
+                I create
+                <select class="calculator-select" id="presentations-select" onchange="updateCalculator()">
+                    <option value="2">1-2</option>
+                    <option value="4" selected>3-5</option>
+                    <option value="8">6-10</option>
+                    <option value="15">10+</option>
+                </select>
+                presentations per month
+            </div>
+
+            <div class="calculator-row">
+                Each presentation has
+                <select class="calculator-select" id="slides-select" onchange="updateCalculator()">
+                    <option value="7">5-10</option>
+                    <option value="15" selected>10-20</option>
+                    <option value="25">20-30</option>
+                    <option value="40">30+</option>
+                </select>
+                slides
+            </div>
+
+            <div class="calculator-result">
+                <div class="credits" id="credits-result">You'll need approximately: 600 credits/month</div>
+
+                <div class="recommendation" id="recommendation-box">
+                    <div class="rec-title" id="rec-title">✓ Recommended: Pro (4,000 credits)</div>
+                    <p id="rec-description">Plenty of room for your workflow plus revisions</p>
+                </div>
+
+                <a href="#" class="rec-cta" id="rec-cta">Get Pro →</a>
+            </div>
+        </div>
+
         <!-- CHANGE 3: What Happens When Credits Run Out -->
         <div class="design-annotation">
             <div class="annotation-label">Note: Change 3 — Credit Anxiety Reducer</div>
@@ -683,6 +735,83 @@
             </div>
         </div>
 
+        <!-- CHANGE 4: Feature Comparison Table (restored per reviewer feedback) -->
+        <div class="design-annotation">
+            <div class="annotation-label">Note: Change 4 — Feature Comparison Table</div>
+            <div class="annotation-text">Detailed feature comparison helps users understand exactly what they get at each tier.</div>
+        </div>
+
+        <div class="comparison-section">
+            <h2>Compare all features</h2>
+
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>Feature</th>
+                        <th>Free</th>
+                        <th class="popular-header">Pro</th>
+                        <th>Ultra</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Credits</td>
+                        <td>400 one-time</td>
+                        <td>4,000/month</td>
+                        <td>Unlimited</td>
+                    </tr>
+                    <tr>
+                        <td>Cards per prompt</td>
+                        <td>10</td>
+                        <td>30</td>
+                        <td>60</td>
+                    </tr>
+                    <tr>
+                        <td>AI models</td>
+                        <td>Basic</td>
+                        <td>Premium</td>
+                        <td>Most advanced</td>
+                    </tr>
+                    <tr>
+                        <td>PDF & PPTX export</td>
+                        <td class="check">✓</td>
+                        <td class="check">✓</td>
+                        <td class="check">✓</td>
+                    </tr>
+                    <tr>
+                        <td>Remove "Made with Gamma"</td>
+                        <td class="dash">—</td>
+                        <td class="check">✓</td>
+                        <td class="check">✓</td>
+                    </tr>
+                    <tr>
+                        <td>Custom fonts & branding</td>
+                        <td class="dash">—</td>
+                        <td class="check">✓</td>
+                        <td class="check">✓</td>
+                    </tr>
+                    <tr>
+                        <td>API access</td>
+                        <td class="dash">—</td>
+                        <td class="check">✓</td>
+                        <td class="check">✓</td>
+                    </tr>
+                    <tr>
+                        <td>Priority support</td>
+                        <td class="dash">—</td>
+                        <td class="check">✓</td>
+                        <td class="check">✓</td>
+                    </tr>
+                    <tr>
+                        <td>Premium support</td>
+                        <td class="dash">—</td>
+                        <td class="dash">—</td>
+                        <td class="check">✓</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
         <!-- Trust Badges -->
         <div class="trust-badges">
             <div class="trust-badge">
@@ -696,5 +825,43 @@
         </div>
         </div>
     </div>
+
+    <script>
+        function updateCalculator() {
+            const presentations = parseInt(document.getElementById('presentations-select').value);
+            const slides = parseInt(document.getElementById('slides-select').value);
+
+            // ~10 credits per slide
+            const creditsNeeded = presentations * slides * 10;
+
+            // Update credits display
+            document.getElementById('credits-result').textContent =
+                `You'll need approximately: ${creditsNeeded.toLocaleString()} credits/month`;
+
+            // Determine recommendation based on credits (Free = 400 one-time, Pro = 4000, Ultra = unlimited)
+            let recommendation, description, ctaText;
+
+            if (creditsNeeded <= 400) {
+                recommendation = 'Free (400 credits)';
+                description = 'Perfect for getting started with Gamma';
+                ctaText = 'Start Free →';
+            } else if (creditsNeeded <= 4000) {
+                recommendation = 'Pro (4,000 credits)';
+                description = 'Plenty of room for your workflow plus revisions';
+                ctaText = 'Get Pro →';
+            } else {
+                recommendation = 'Ultra (Unlimited)';
+                description = 'No limits for high-volume creators';
+                ctaText = 'Get Ultra →';
+            }
+
+            document.getElementById('rec-title').textContent = '✓ Recommended: ' + recommendation;
+            document.getElementById('rec-description').textContent = description;
+            document.getElementById('rec-cta').textContent = ctaText;
+        }
+
+        // Initialize on page load
+        document.addEventListener('DOMContentLoaded', updateCalculator);
+    </script>
 </body>
 </html>
