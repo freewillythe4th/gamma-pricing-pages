@@ -371,53 +371,57 @@
             background: #FFFFFF;
             border: 1px solid #DFDFE0;
             border-radius: 12px;
-            padding: 24px;
+            padding: 32px;
             margin-top: 24px;
             text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
         }
 
         .calculator-result .credits {
-            font-size: 28px;
-            font-weight: 700;
-            color: #EA4BCD; /* REVIEWER FEEDBACK: Pink to highlight insight */
-            background: rgba(234, 75, 205, 0.1);
-            padding: 16px 24px;
-            border-radius: 8px;
+            font-size: 20px;
+            font-weight: 600;
+            color: #EA4BCD;
+            background: rgba(234, 75, 205, 0.08);
+            padding: 14px 28px;
+            border-radius: 100px;
             display: inline-block;
-            margin-bottom: 16px;
         }
 
         .calculator-result .recommendation {
             background: #EBF3FE;
             border: 1px solid #C0DEFD;
-            border-radius: 8px;
-            padding: 12px 24px; /* REVIEWER: ~16px padding, hugs text */
-            margin-top: 16px;
-            display: inline-block; /* REVIEWER FEEDBACK: Hug to text, not fill width */
+            border-radius: 10px;
+            padding: 16px 24px;
+            display: inline-block;
+            max-width: 320px;
         }
 
         .calculator-result .recommendation .rec-title {
             color: #0858F7;
             font-weight: 600;
-            font-size: 14px;
-            margin-bottom: 8px;
+            font-size: 15px;
+            margin-bottom: 4px;
         }
 
         .calculator-result .recommendation p {
-            color: #252527;
-            font-size: 14px;
+            color: #66666B;
+            font-size: 13px;
+            margin: 0;
         }
 
         .calculator-result .rec-cta {
             display: inline-block;
-            margin-top: 16px;
-            padding: 12px 24px;
+            padding: 14px 32px;
             background: #0858F7;
             color: white;
             border-radius: 8px;
             text-decoration: none;
             font-weight: 600;
-            font-size: 14px;
+            font-size: 15px;
+            transition: background 0.2s;
         }
 
         .calculator-result .rec-cta:hover {
